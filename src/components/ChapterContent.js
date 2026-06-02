@@ -194,11 +194,12 @@ export default function ChapterContent({ sections, chapterId }) {
 
   // Group slides by sectionTitle for TOC
   const tocGroups = [];
-  let lastSection = "";
+  let lastSection = null;
   for (let i = 0; i < allSlides.length; i++) {
-    if (allSlides[i].sectionTitle !== lastSection) {
-      tocGroups.push({ section: allSlides[i].sectionTitle, startIdx: i, slides: [] });
-      lastSection = allSlides[i].sectionTitle;
+    const st = allSlides[i].sectionTitle || "(소개)";
+    if (st !== lastSection) {
+      tocGroups.push({ section: st, startIdx: i, slides: [] });
+      lastSection = st;
     }
     tocGroups[tocGroups.length - 1].slides.push({ idx: i, title: allSlides[i].title });
   }
