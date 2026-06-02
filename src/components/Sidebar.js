@@ -2,18 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Network, Home, BookOpen, Activity, Layers, Wifi, Link as LinkIcon, Database, Shield } from "lucide-react";
+import { Network, Home, BookOpen, Activity, Layers, Wifi, Database, Shield } from "lucide-react";
 import styles from "../app/layout.module.css";
 
 const chapters = [
-  { id: "ch01", title: "1장. Introduction", icon: BookOpen },
-  { id: "ch02", title: "2장. Application Layer", icon: Layers },
-  { id: "ch03", title: "3장. Transport Layer", icon: Activity },
-  { id: "ch04", title: "4장. Network (Data Plane)", icon: Database },
-  { id: "ch05", title: "5장. Network (Control Plane)", icon: Network },
-  { id: "ch06", title: "6장. Link Layer & LANs", icon: LinkIcon },
-  { id: "ch07", title: "7장. Wireless & Mobile", icon: Wifi },
-  { id: "ch08", title: "8장. Blockchain & P2P", icon: Shield },
+  { id: "ch01", title: "1. Introduction", icon: BookOpen },
+  { id: "ch02", title: "2. Application Layer", icon: Layers },
+  { id: "ch03", title: "3. Transport Layer", icon: Activity },
+  { id: "ch04", title: "4. Network (Data)", icon: Database },
+  { id: "ch05", title: "5. Network (Control)", icon: Network },
+  { id: "ch06", title: "6. Link Layer", icon: Network },
+  { id: "ch07", title: "7. Wireless", icon: Wifi },
+  { id: "ch08", title: "8. Blockchain", icon: Shield },
 ];
 
 export default function Sidebar() {
@@ -22,8 +22,8 @@ export default function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <Link href="/" className={styles.logo}>
-        <Network size={28} color="var(--accent-blue)" />
-        NetVisualizer
+        <Network size={22} color="var(--accent-blue)" />
+        네트워크 학습
       </Link>
       
       <nav>
@@ -31,11 +31,11 @@ export default function Sidebar() {
           href="/" 
           className={`${styles.navLink} ${pathname === '/' ? styles.navLinkActive : ''}`}
         >
-          <Home size={20} />
-          <span>Home</span>
+          <Home size={16} />
+          <span>홈</span>
         </Link>
         
-        <div style={{ marginTop: '2rem', marginBottom: '0.5rem', paddingLeft: '1rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 'bold' }}>
+        <div style={{ marginTop: '1.5rem', marginBottom: '0.5rem', paddingLeft: '0.75rem', fontSize: '0.7rem', color: '#475569', fontWeight: 600, letterSpacing: '1px' }}>
           CHAPTERS
         </div>
         
@@ -49,7 +49,7 @@ export default function Sidebar() {
               href={`/chapter/${ch.id}`}
               className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
             >
-              <Icon size={20} />
+              <Icon size={16} />
               <span>{ch.title}</span>
             </Link>
           );

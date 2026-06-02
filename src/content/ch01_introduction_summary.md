@@ -41,7 +41,6 @@
 
 ### 3.1 인터넷의 구성요소
 
-![인터넷 전체 구조도](/images/internet_structure.png)
 
 - **Host = end system**: PC, smartphone, server처럼 네트워크 앱이 실행되는 끝 장치.
 - **Communication link**: fiber, copper, radio, satellite 등으로 bit를 전달하는 물리 매체.
@@ -66,7 +65,6 @@ HTTP, TCP, IP, 802.11 같은 것이 모두 protocol이다.
 
 ### 3.3 Network edge
 
-![액세스 네트워크와 물리 매체](/images/access_networks.png)
 
 Network edge는 사용자의 기기가 인터넷에 붙는 영역이다.
 
@@ -116,7 +114,6 @@ Circuit switching은 통신 전에 회선 자원을 예약한다. 전화망식 �
 
 ### 3.7 Delay, loss, throughput
 
-![네트워크 지연 요소](/images/network_delay.png)
 
 하나의 node에서 packet delay는 네 가지로 나뉜다.
 
@@ -147,7 +144,6 @@ Packet loss는 queue가 꽉 찼을 때 발생한다. Throughput은 end-to-end로
 
 ### 3.9 Network security
 
-![네트워크 보안 위협 예시](/images/network_security.png)
 
 초반 장에서는 보안을 깊게 다루지는 않지만, 인터넷이 공격 대상이 되는 기본 유형을 소개한다.
 
