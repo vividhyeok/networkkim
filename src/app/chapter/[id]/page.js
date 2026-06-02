@@ -18,20 +18,18 @@ export default async function ChapterPage({ params }) {
   
   const customRenderers = {
     h1: ({node, ...props}) => (
-      <div style={{ textAlign: "center", marginBottom: "4rem", paddingBottom: "2rem", borderBottom: "1px solid var(--glass-border)" }}>
-        <h1 style={{ fontSize: "3.5rem", margin: 0, background: "linear-gradient(90deg, #fff, var(--text-secondary))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} {...props} />
+      <div style={{ marginBottom: "3rem", paddingBottom: "1.5rem", borderBottom: "2px solid var(--border-color)" }}>
+        <h1 style={{ fontSize: "2.5rem", margin: 0, color: "#f8fafc" }} {...props} />
       </div>
     ),
     h2: ({node, ...props}) => {
       const text = props.children;
       return (
-        <div style={{ marginTop: "5rem", marginBottom: "2rem" }}>
-          <div style={{ display: "inline-block", background: "rgba(255, 0, 85, 0.1)", padding: "0.5rem 1.5rem", borderRadius: "30px", border: "1px solid rgba(255, 0, 85, 0.3)" }}>
-            <h2 style={{ color: "var(--accent-pink)", margin: 0, display: "flex", alignItems: "center", gap: "0.8rem", fontSize: "1.8rem" }} {...props}>
-              <BookOpen size={24} />
-              {text}
-            </h2>
-          </div>
+        <div style={{ marginTop: "4rem", marginBottom: "1.5rem" }}>
+          <h2 style={{ color: "#e2e8f0", margin: 0, display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "1.75rem" }} {...props}>
+            <BookOpen size={24} color="var(--accent-blue)" />
+            {text}
+          </h2>
           {text === "3.5 Packet switching" && id === "ch01" && (
             <KidsExplanation title="패킷 스위칭이란? (12살 맞춤 설명)">
               <p>패킷 스위칭은 편지를 보낼 때 한 장의 긴 편지 대신, 여러 장의 엽서로 나눠서 보내는 것과 같아요! 우체국(라우터) 아저씨가 엽서 하나하나를 보고 가장 빠른 길로 목적지까지 보내주죠. 엽서가 중간에 순서가 섞여도 도착해서 다시 합치면 되니까 인터넷처럼 사람들이 한 번에 많이 몰리는 곳에서 효율적이에요.</p>
@@ -53,29 +51,29 @@ export default async function ChapterPage({ params }) {
       );
     },
     h3: ({node, ...props}) => (
-      <h3 style={{ color: "var(--accent-blue)", fontSize: "1.5rem", marginTop: "3rem", marginBottom: "1.5rem", paddingLeft: "1rem", borderLeft: "4px solid var(--accent-blue)" }} {...props} />
+      <h3 style={{ color: "#94a3b8", fontSize: "1.4rem", marginTop: "2.5rem", marginBottom: "1rem" }} {...props} />
     ),
     p: ({node, ...props}) => (
-      <p style={{ fontSize: "1.15rem", lineHeight: "1.8", color: "#d1d5db", marginBottom: "1.5rem" }} {...props} />
+      <p style={{ fontSize: "1.05rem", lineHeight: "1.7", color: "#cbd5e1", marginBottom: "1.5rem" }} {...props} />
     ),
     ul: ({node, ...props}) => (
-      <ul style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1rem", padding: 0, listStyle: "none", margin: "2rem 0" }} {...props} />
+      <ul style={{ paddingLeft: "2rem", margin: "1.5rem 0", color: "#cbd5e1" }} {...props} />
     ),
     li: ({node, ...props}) => (
-      <li style={{ background: "rgba(255,255,255,0.03)", padding: "1.5rem", borderRadius: "12px", border: "1px solid var(--glass-border)", fontSize: "1.1rem" }} {...props} />
+      <li style={{ marginBottom: "0.5rem", fontSize: "1.05rem", lineHeight: "1.6" }} {...props} />
     ),
     blockquote: ({node, ...props}) => (
-      <div style={{ background: "linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(0, 240, 255, 0.05))", padding: "2rem", borderRadius: "16px", borderLeft: "none", borderTop: "4px solid var(--accent-purple)", margin: "3rem 0", boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}>
-        <blockquote style={{ margin: 0, fontSize: "1.2rem", fontWeight: "bold", fontStyle: "normal", color: "#fff" }} {...props} />
+      <div style={{ background: "#1e293b", padding: "1.5rem", borderRadius: "8px", borderLeft: "4px solid var(--accent-blue)", margin: "2rem 0" }}>
+        <blockquote style={{ margin: 0, fontSize: "1.1rem", fontStyle: "italic", color: "#e2e8f0" }} {...props} />
       </div>
     ),
     table: ({node, ...props}) => (
-      <div style={{ overflowX: "auto", margin: "3rem 0", borderRadius: "16px", border: "1px solid var(--glass-border)", boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", background: "rgba(10,10,15,0.8)" }} {...props} />
+      <div style={{ overflowX: "auto", margin: "2.5rem 0", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", background: "var(--bg-panel)" }} {...props} />
       </div>
     ),
-    th: ({node, ...props}) => <th style={{ padding: "1.5rem 1rem", background: "rgba(0, 240, 255, 0.1)", borderBottom: "1px solid rgba(0, 240, 255, 0.2)", color: "var(--accent-blue)", textAlign: "left", fontSize: "1.1rem", textTransform: "uppercase", letterSpacing: "1px" }} {...props} />,
-    td: ({node, ...props}) => <td style={{ padding: "1.5rem 1rem", borderBottom: "1px solid var(--glass-border)", color: "#e5e7eb", fontSize: "1.1rem" }} {...props} />
+    th: ({node, ...props}) => <th style={{ padding: "1rem", background: "#1e293b", borderBottom: "2px solid var(--border-color)", color: "#e2e8f0", textAlign: "left", fontSize: "1rem" }} {...props} />,
+    td: ({node, ...props}) => <td style={{ padding: "1rem", borderBottom: "1px solid var(--border-color)", color: "#cbd5e1", fontSize: "1rem" }} {...props} />
   };
 
   return (
