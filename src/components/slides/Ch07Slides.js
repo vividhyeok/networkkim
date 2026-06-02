@@ -1,6 +1,6 @@
 "use client";
 
-import { Wifi, Radio, Smartphone, Activity, MapPin, Repeat, ShieldCheck, Forward } from "lucide-react";
+import { Wifi, Radio, Smartphone, Activity, MapPin, Repeat, ShieldCheck, Forward, RadioTower } from "lucide-react";
 import Term from "@/components/Term";
 
 /* ═══════════════════════════════════════════

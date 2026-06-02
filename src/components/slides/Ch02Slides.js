@@ -1,6 +1,6 @@
 "use client";
 
-import { Server, Users, Network, Globe, Mail, Database, Film, FileCode2, ArrowRight, ServerCrash, Share2, ShieldQuestion } from "lucide-react";
+import { Server, Users, Network, Globe, Mail, Database, Film, FileCode2, ArrowRight, ServerCrash, Share2, ShieldQuestion, ArrowDown } from "lucide-react";
 import Term from "@/components/Term";
 import { ch01Slides } from "./Ch01Slides"; // to copy styles
 
