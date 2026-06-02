@@ -3,9 +3,9 @@ import { BookOpen, Activity, Network, Shield } from "lucide-react";
 
 export default function Home() {
   return (
-    <div style={{ padding: "2rem 0", maxWidth: "1000px", margin: "0 auto" }}>
-      <header style={{ textAlign: "center", marginBottom: "4rem" }}>
-        <h1 style={{ fontSize: "3.5rem", marginBottom: "1rem" }}>
+    <div style={{ padding: "3rem 2%", maxWidth: "1400px", margin: "0 auto", width: "100%" }}>
+      <header style={{ textAlign: "center", marginBottom: "6rem" }}>
+        <h1 style={{ fontSize: "4.5rem", marginBottom: "1.5rem", lineHeight: "1.2" }}>
           Explore the <br />
           <span style={{ color: "var(--accent-pink)" }}>Network</span> Universe
         </h1>

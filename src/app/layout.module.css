@@ -57,8 +57,8 @@
 .mainContent {
   flex: 1;
   margin-left: var(--sidebar-width);
-  padding: 2rem 4rem;
-  max-width: 1200px;
+  padding: 2rem 5%;
+  width: calc(100% - var(--sidebar-width));
 }
 
 @media (max-width: 768px) {
@@ -77,6 +77,7 @@
   
   .mainContent {
     margin-left: 0;
+    width: 100%;
     padding: 1.5rem 1rem;
   }
 }
