@@ -13,7 +13,7 @@ const s = {
   tag: (color) => ({ display: "inline-block", background: `${color}18`, color: color, padding: "0.25rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.5px", marginBottom: "1rem" }),
   title: { fontSize: "1.7rem", color: "#f1f5f9", fontWeight: 700, marginBottom: "1.5rem" },
   subtitle: { fontSize: "1.15rem", color: "#94a3b8", lineHeight: "1.7", marginBottom: "1.5rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" },
+  grid2: { marginTop: "1rem" },
   grid3: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginTop: "1rem" },
   card: (borderColor = "#334155") => ({ background: "#161920", border: `1px solid ${borderColor}`, borderRadius: "12px", padding: "1.5rem" }),
   keyword: { color: "#38bdf8", fontWeight: 700 },
@@ -35,7 +35,7 @@ function SlideArchitecture() {
       <h2 style={s.title}>Client-Server vs P2P 구조</h2>
       <p style={s.subtitle}>네트워크 앱은 라우터가 아닌 <span style={s.keyword}><Term>End System</Term></span>에서 동작합니다.</p>
       
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Server size={24} color="#3b82f6" />
@@ -116,7 +116,7 @@ function SlideHTTP() {
       <h2 style={s.title}>HTTP 기본 & 메시지 구조</h2>
       <p style={s.subtitle}>웹은 <Term>TCP</Term> 위에서 동작하는 <span style={s.keyword}>Stateless</span> 프로토콜인 <Term>HTTP</Term>를 사용합니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         {/* Request */}
         <div style={s.card("#a78bfa40")}>
           <h3 style={{ color: "#c084fc", fontSize: "1.1rem", marginBottom: "0.5rem" }}>Request Message</h3>
@@ -207,7 +207,7 @@ function SlideEmail() {
         </div>
       </div>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#334155")}>
           <h3 style={{ color: "#cbd5e1", fontSize: "1.1rem" }}>SMTP (Push)</h3>
           <div style={{ color: "#94a3b8", fontSize: "0.95rem" }}>TCP 포트 25 사용. 발신자 서버에서 수신자 서버로 메일을 밀어넣음.</div>
@@ -229,7 +229,7 @@ function SlideDNS() {
       <h2 style={s.title}>DNS (Domain Name System)</h2>
       <p style={s.subtitle}>도메인 이름을 IP 주소로 변환하는 분산 데이터베이스 시스템.</p>
 
-      <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
+      <div className="flex-col-to-row" style={{ alignItems: "flex-start" }}>
         <div style={{ flex: 1 }}>
           <h3 style={{ color: "#e2e8f0", fontSize: "1.1rem", marginBottom: "1rem" }}>중앙집중형이 아닌 이유</h3>
           <Bullet color="#ef4444">단일 장애점 (Single point of failure)</Bullet>
@@ -251,7 +251,7 @@ function SlideDNS() {
 
       <div style={{ marginTop: "2rem" }}>
         <h3 style={{ color: "#f1f5f9", fontSize: "1.1rem", marginBottom: "0.8rem" }}>주요 레코드(RR) 타입</h3>
-        <div style={s.grid2}>
+        <div className="grid-1-to-2" style={s.grid2}>
           <div style={s.card()}><span style={s.keyword}>Type A</span> : 도메인 이름 → IPv4 주소</div>
           <div style={s.card()}><span style={s.keyword}>Type NS</span> : 도메인의 권한 네임서버</div>
           <div style={s.card()}><span style={s.keyword}>Type CNAME</span> : 별칭(Alias) → 정식 이름</div>
@@ -300,7 +300,7 @@ function SlideVideo() {
       <h2 style={s.title}>Video Streaming: <Term>DASH</Term> & <Term>CDN</Term></h2>
       <p style={s.subtitle}>Netflix, YouTube가 버퍼링 없이 고화질을 서비스하는 원리</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#ec4899")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Film size={24} color="#ec4899" />

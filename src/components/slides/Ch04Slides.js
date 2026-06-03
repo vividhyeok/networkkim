@@ -12,7 +12,7 @@ const s = {
   tag: (color) => ({ display: "inline-block", background: `${color}18`, color: color, padding: "0.25rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.5px", marginBottom: "1rem" }),
   title: { fontSize: "1.7rem", color: "#f1f5f9", fontWeight: 700, marginBottom: "1.5rem" },
   subtitle: { fontSize: "1.15rem", color: "#94a3b8", lineHeight: "1.7", marginBottom: "1.5rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" },
+  grid2: { marginTop: "1rem" },
   card: (borderColor = "#334155") => ({ background: "#161920", border: `1px solid ${borderColor}`, borderRadius: "12px", padding: "1.5rem" }),
   keyword: { color: "#38bdf8", fontWeight: 700 },
   bullet: { fontSize: "1.1rem", color: "#cbd5e1", lineHeight: "1.8", margin: "0.4rem 0", paddingLeft: "1.2rem", position: "relative" },
@@ -33,7 +33,7 @@ function SlidePlanes() {
       <h2 style={s.title}>Data Plane vs Control Plane</h2>
       <p style={s.subtitle}>네트워크 계층은 길을 <strong>찾는 것</strong>과 길로 <strong>보내는 것</strong> 두 가지 역할을 합니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <ArrowRightLeft size={24} color="#3b82f6" />
@@ -113,7 +113,7 @@ function SlideAddress() {
       <span style={s.tag("#a78bfa")}>주소 할당과 변환</span>
       <h2 style={s.title}>IPv4, <Term>DHCP</Term>, 그리고 <Term>NAT</Term></h2>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#a78bfa40")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Waypoints size={24} color="#a78bfa" />
@@ -151,7 +151,7 @@ function SlideIPv6() {
       <h2 style={s.title}>IPv6와 Tunneling</h2>
       <p style={s.subtitle}>IPv4 주소 고갈 문제를 해결하고 헤더 처리를 효율화하기 위한 새로운 체계</p>
 
-      <div style={{ display: "flex", gap: "1.5rem" }}>
+      <div className="flex-col-to-row" style={{}}>
         <div style={{ flex: 1 }}>
           <h3 style={{ color: "#06b6d4", fontSize: "1.2rem", marginBottom: "1rem" }}>IPv6의 주요 변화</h3>
           <Bullet><strong>128-bit 주소:</strong> 거의 무한대에 가까운 주소 공간</Bullet>

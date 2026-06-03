@@ -12,7 +12,7 @@ const s = {
   tag: (color) => ({ display: "inline-block", background: `${color}18`, color: color, padding: "0.25rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.5px", marginBottom: "1rem" }),
   title: { fontSize: "1.7rem", color: "#f1f5f9", fontWeight: 700, marginBottom: "1.5rem" },
   subtitle: { fontSize: "1.15rem", color: "#94a3b8", lineHeight: "1.7", marginBottom: "1.5rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" },
+  grid2: { marginTop: "1rem" },
   card: (borderColor = "#334155") => ({ background: "#161920", border: `1px solid ${borderColor}`, borderRadius: "12px", padding: "1.5rem" }),
   keyword: { color: "#38bdf8", fontWeight: 700 },
   bullet: { fontSize: "1.1rem", color: "#cbd5e1", lineHeight: "1.8", margin: "0.4rem 0", paddingLeft: "1.2rem", position: "relative" },
@@ -51,7 +51,7 @@ function SlideLink() {
         </div>
       </div>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#334155")}>
           <h3 style={{ color: "#cbd5e1", fontSize: "1.1rem" }}>주요 서비스</h3>
           <Bullet><strong>Framing:</strong> IP 데이터그램 앞뒤에 헤더와 트레일러(MAC 주소 등) 부착</Bullet>
@@ -75,7 +75,7 @@ function SlideMAC() {
       <h2 style={s.title}>Multiple Access Protocols</h2>
       <p style={s.subtitle}>하나의 선(또는 공기)을 여러 기기가 동시에 쓰면 충돌(Collision)이 발생합니다. 어떻게 해결할까요?</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <SwitchCamera size={24} color="#f59e0b" />
@@ -109,7 +109,7 @@ function SlideARP() {
       <span style={s.tag("#a78bfa")}>주소 변환</span>
       <h2 style={s.title}>MAC Address와 <Term>ARP</Term></h2>
 
-      <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
+      <div className="flex-col-to-row" style={{ alignItems: "flex-start" }}>
         <div style={{ flex: 1 }}>
           <h3 style={{ color: "#a78bfa", fontSize: "1.2rem", marginBottom: "1rem" }}>IP vs MAC 주소</h3>
           <div style={{ background: "#161920", padding: "1rem", borderRadius: "8px", border: "1px solid #334155", marginBottom: "1rem" }}>

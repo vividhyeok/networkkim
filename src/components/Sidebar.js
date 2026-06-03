@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Network, Home, BookOpen, Activity, Layers, Wifi, Database, Shield } from "lucide-react";
+import { Network, Home, BookOpen, Activity, Layers, Wifi, Database, Shield, Menu, X } from "lucide-react";
 import styles from "../app/layout.module.css";
 
 const chapters = [
@@ -18,43 +19,66 @@ const chapters = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <aside className={styles.sidebar}>
-      <Link href="/" className={styles.logo}>
-        <Network size={22} color="var(--accent-blue)" />
-        네트워크 학습
-      </Link>
-      
-      <nav>
-        <Link 
-          href="/" 
-          className={`${styles.navLink} ${pathname === '/' ? styles.navLinkActive : ''}`}
-        >
-          <Home size={16} />
-          <span>홈</span>
+    <>
+      <div className={styles.mobileHeader}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#f1f5f9', fontWeight: 700 }}>
+          <Network size={22} color="var(--accent-blue)" />
+          네트워크 학습
+        </div>
+        <button className={styles.hamburgerBtn} onClick={toggleMenu} aria-label="Toggle Menu">
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      <div 
+        className={`${styles.overlay} ${isMobileMenuOpen ? styles.open : ''}`} 
+        onClick={closeMenu}
+      />
+
+      <aside className={`${styles.sidebar} ${isMobileMenuOpen ? styles.open : ''}`}>
+        <Link href="/" className={styles.logo} onClick={closeMenu}>
+          <Network size={22} color="var(--accent-blue)" />
+          네트워크 학습
         </Link>
         
-        <div style={{ marginTop: '1.5rem', marginBottom: '0.5rem', paddingLeft: '0.75rem', fontSize: '0.7rem', color: '#475569', fontWeight: 600, letterSpacing: '1px' }}>
-          CHAPTERS
-        </div>
-        
-        {chapters.map((ch) => {
-          const Icon = ch.icon;
-          const isActive = pathname.includes(ch.id);
+        <nav>
+          <Link 
+            href="/" 
+            className={`${styles.navLink} ${pathname === '/' ? styles.navLinkActive : ''}`}
+            onClick={closeMenu}
+          >
+            <Home size={16} />
+            <span>홈</span>
+          </Link>
           
-          return (
-            <Link 
-              key={ch.id} 
-              href={`/chapter/${ch.id}`}
-              className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
-            >
-              <Icon size={16} />
-              <span>{ch.title}</span>
-            </Link>
-          );
-        })}
-      </nav>
-    </aside>
+          <div style={{ marginTop: '1.5rem', marginBottom: '0.5rem', paddingLeft: '0.75rem', fontSize: '0.7rem', color: '#475569', fontWeight: 600, letterSpacing: '1px' }}>
+            CHAPTERS
+          </div>
+          
+          {chapters.map((ch) => {
+            const Icon = ch.icon;
+            const isActive = pathname.includes(ch.id);
+            
+            return (
+              <Link 
+                key={ch.id} 
+                href={`/chapter/${ch.id}`}
+                className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                onClick={closeMenu}
+              >
+                <Icon size={16} />
+                <span>{ch.title}</span>
+              </Link>
+            );
+          })}
+        </nav>
+      </aside>
+    </>
   );
 }

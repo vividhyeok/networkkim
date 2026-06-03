@@ -12,7 +12,7 @@ const s = {
   tag: (color) => ({ display: "inline-block", background: `${color}18`, color: color, padding: "0.25rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.5px", marginBottom: "1rem" }),
   title: { fontSize: "1.7rem", color: "#f1f5f9", fontWeight: 700, marginBottom: "1.5rem" },
   subtitle: { fontSize: "1.15rem", color: "#94a3b8", lineHeight: "1.7", marginBottom: "1.5rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" },
+  grid2: { marginTop: "1rem" },
   card: (borderColor = "#334155") => ({ background: "#161920", border: `1px solid ${borderColor}`, borderRadius: "12px", padding: "1.5rem" }),
   keyword: { color: "#38bdf8", fontWeight: 700 },
   bullet: { fontSize: "1.1rem", color: "#cbd5e1", lineHeight: "1.8", margin: "0.4rem 0", paddingLeft: "1.2rem", position: "relative" },
@@ -75,7 +75,7 @@ function SlideBitcoin() {
       <span style={s.tag("#f59e0b")}>핵심 차이</span>
       <h2 style={s.title}>Bitcoin ≠ Blockchain</h2>
       
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Blocks size={24} color="#f59e0b" />
@@ -115,7 +115,7 @@ function SlideP2P() {
       <h2 style={s.title}>Torrent vs Blockchain</h2>
       <p style={s.subtitle}>둘 다 서버 없이 개인들이 연결된 P2P 네트워크지만 목적이 다릅니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Network size={24} color="#3b82f6" />
@@ -177,7 +177,7 @@ function SlideDB() {
       <h2 style={s.title}>Database vs Blockchain</h2>
       <p style={s.subtitle}>블록체인이 무조건 좋은 것은 아닙니다. 신뢰를 얻기 위해 효율성을 포기한 구조입니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <HardDrive size={24} color="#3b82f6" />

@@ -12,7 +12,7 @@ const s = {
   tag: (color) => ({ display: "inline-block", background: `${color}18`, color: color, padding: "0.25rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.5px", marginBottom: "1rem" }),
   title: { fontSize: "1.7rem", color: "#f1f5f9", fontWeight: 700, marginBottom: "1.5rem" },
   subtitle: { fontSize: "1.15rem", color: "#94a3b8", lineHeight: "1.7", marginBottom: "1.5rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" },
+  grid2: { marginTop: "1rem" },
   card: (borderColor = "#334155") => ({ background: "#161920", border: `1px solid ${borderColor}`, borderRadius: "12px", padding: "1.5rem" }),
   keyword: { color: "#38bdf8", fontWeight: 700 },
   bullet: { fontSize: "1.1rem", color: "#cbd5e1", lineHeight: "1.8", margin: "0.4rem 0", paddingLeft: "1.2rem", position: "relative" },
@@ -33,7 +33,7 @@ function SlideControlPlane() {
       <h2 style={s.title}>Control Plane 구현 방식</h2>
       <p style={s.subtitle}>네트워크 전체를 보고 어떻게 최적의 경로를 찾을 것인가?</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Share2 size={24} color="#3b82f6" />
@@ -67,7 +67,7 @@ function SlideAlgorithms() {
       <h2 style={s.title}>Link State vs Distance Vector</h2>
       <p style={s.subtitle}>어떤 정보를 바탕으로 최단 경로(Shortest Path)를 계산하는가?</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#22c55e")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Map size={24} color="#22c55e" />
@@ -137,7 +137,7 @@ function SlideBGP() {
       <h2 style={s.title}><Term>BGP</Term> (Border Gateway Protocol)</h2>
       <p style={s.subtitle}>인터넷 라우팅의 핵심. 단순히 "가장 빠른 길"이 아니라 "정책상 갈 수 있는 길"을 찾습니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#06b6d440")}>
           <h3 style={{ color: "#06b6d4", fontSize: "1.1rem", marginBottom: "0.8rem" }}>eBGP vs iBGP</h3>
           <Bullet><strong>eBGP:</strong> 다른 AS에 있는 라우터 간 연결. "우린 이런 IP 대역을 갖고 있어!" 라고 외부에 광고(Advertisement).</Bullet>

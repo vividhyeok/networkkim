@@ -75,3 +75,37 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.3; color: #f1f5f9; }
   background: transparent;
   padding: 0;
 }
+
+/* Responsive Utilities */
+.grid-1-to-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.grid-1-to-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+.flex-col-to-row { display: flex; flex-direction: row; gap: 1.5rem; }
+
+@media (max-width: 768px) {
+  .grid-1-to-2, .grid-1-to-3 { grid-template-columns: 1fr; }
+  .flex-col-to-row { flex-direction: column; }
+  h1 { font-size: 1.8rem !important; }
+  h2 { font-size: 1.4rem !important; }
+  h3 { font-size: 1.15rem !important; }
+}
+
+
+@media (max-width: 768px) {
+  div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  div[style*="display: flex"][style*="gap: 1.5rem"],
+  div[style*="display: flex"][style*="gap: 2rem"] {
+    flex-direction: column !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .grid-1-to-2, .grid-1-to-3 { grid-template-columns: 1fr !important; }
+  .flex-col-to-row { flex-direction: column !important; }
+  .slide-box { padding: 1.5rem !important; }
+}
+

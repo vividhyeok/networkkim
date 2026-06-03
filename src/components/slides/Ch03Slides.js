@@ -12,7 +12,7 @@ const s = {
   tag: (color) => ({ display: "inline-block", background: `${color}18`, color: color, padding: "0.25rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.5px", marginBottom: "1rem" }),
   title: { fontSize: "1.7rem", color: "#f1f5f9", fontWeight: 700, marginBottom: "1.5rem" },
   subtitle: { fontSize: "1.15rem", color: "#94a3b8", lineHeight: "1.7", marginBottom: "1.5rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" },
+  grid2: { marginTop: "1rem" },
   card: (borderColor = "#334155") => ({ background: "#161920", border: `1px solid ${borderColor}`, borderRadius: "12px", padding: "1.5rem" }),
   keyword: { color: "#38bdf8", fontWeight: 700 },
   bullet: { fontSize: "1.1rem", color: "#cbd5e1", lineHeight: "1.8", margin: "0.4rem 0", paddingLeft: "1.2rem", position: "relative" },
@@ -33,7 +33,7 @@ function SlideDemux() {
       <h2 style={s.title}>Multiplexing & Demultiplexing</h2>
       <p style={s.subtitle}>네트워크 계층(IP)이 호스트를 찾았다면, 트랜스포트 계층은 적절한 <strong>프로세스(소켓)</strong>를 찾습니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#3b82f640")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Box size={24} color="#3b82f6" />
@@ -55,7 +55,7 @@ function SlideDemux() {
 
       <div style={{ marginTop: "1.5rem", background: "rgba(59,130,246,0.1)", padding: "1.2rem", borderRadius: "8px", borderLeft: "3px solid #3b82f6" }}>
         <div style={{ fontWeight: 700, color: "#60a5fa", marginBottom: "0.3rem" }}>소켓 식별 방식의 차이</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginTop: "0.5rem" }}>
+        <div className="grid-1-to-2" style={{ gap: "1rem" }}>
           <div>
             <div style={{ color: "#cbd5e1", fontSize: "0.95rem", fontWeight: 700 }}>UDP (Connectionless)</div>
             <div style={{ color: "#94a3b8", fontSize: "0.9rem" }}>Dest IP, Dest Port만으로 식별. 출발지가 달라도 목적지가 같으면 <strong>같은 소켓</strong>으로 들어옴.</div>
@@ -78,7 +78,7 @@ function SlideUdpTcp() {
       <h2 style={s.title}><Term>UDP</Term> vs <Term>TCP</Term></h2>
       <p style={s.subtitle}>인터넷의 두 가지 주요 트랜스포트 프로토콜</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Zap size={24} color="#f59e0b" />
@@ -133,7 +133,7 @@ function SlideRDT() {
             rdt 3.0(Stop-and-wait)은 하나 보내고 ACK를 기다려야 해서 링크 활용도가 극히 낮습니다. <strong>Pipelining</strong>은 ACK를 기다리지 않고 연속으로 패킷을 보내 성능을 높입니다.
           </p>
           
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+          <div className="grid-1-to-2" style={{ gap: "1rem" }}>
             <div style={{ background: "#0c1220", padding: "1rem", borderRadius: "8px" }}>
               <div style={{ color: "#60a5fa", fontWeight: 700, marginBottom: "0.3rem" }}>Go-Back-N (GBN)</div>
               <div style={{ color: "#cbd5e1", fontSize: "0.85rem" }}>수신자는 순서대로만 받음(Cumulative ACK). 손실 발생 시 손실된 패킷부터 뒤에 보낸 모든 패킷을 <strong>전부 다시 전송</strong>.</div>
@@ -203,7 +203,7 @@ function SlideCongestion() {
       <h2 style={s.title}>TCP <Term>Congestion control</Term></h2>
       <p style={s.subtitle}>네트워크 붕괴를 막기 위해 송신자가 알아서 보내는 양을 조절합니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#ef444440")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
             <Activity size={24} color="#ef4444" />

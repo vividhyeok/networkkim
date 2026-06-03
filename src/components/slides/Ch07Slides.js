@@ -12,7 +12,7 @@ const s = {
   tag: (color) => ({ display: "inline-block", background: `${color}18`, color: color, padding: "0.25rem 0.8rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.5px", marginBottom: "1rem" }),
   title: { fontSize: "1.7rem", color: "#f1f5f9", fontWeight: 700, marginBottom: "1.5rem" },
   subtitle: { fontSize: "1.15rem", color: "#94a3b8", lineHeight: "1.7", marginBottom: "1.5rem" },
-  grid2: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1rem" },
+  grid2: { marginTop: "1rem" },
   card: (borderColor = "#334155") => ({ background: "#161920", border: `1px solid ${borderColor}`, borderRadius: "12px", padding: "1.5rem" }),
   keyword: { color: "#38bdf8", fontWeight: 700 },
   bullet: { fontSize: "1.1rem", color: "#cbd5e1", lineHeight: "1.8", margin: "0.4rem 0", paddingLeft: "1.2rem", position: "relative" },
@@ -33,7 +33,7 @@ function SlideWireless() {
       <h2 style={s.title}>Wireless Link Characteristics</h2>
       <p style={s.subtitle}>무선은 유선(케이블)보다 훨씬 열악한 환경입니다. 신호가 공기 중으로 흩어지기 때문입니다.</p>
 
-      <div style={{ display: "flex", gap: "2rem" }}>
+      <div className="flex-col-to-row" style={{}}>
         <div style={{ flex: 1 }}>
           <h3 style={{ color: "#3b82f6", fontSize: "1.2rem", marginBottom: "1rem" }}>무선 링크의 3대 장애물</h3>
           <Bullet><strong>Path Loss:</strong> 전파가 이동하면서 에너지가 분산되어 신호가 약해짐</Bullet>
@@ -67,7 +67,7 @@ function SlideWiFi() {
       <h2 style={s.title}>802.11 Wi-Fi: CSMA/CA</h2>
       <p style={s.subtitle}>무선은 충돌 감지(Collision Detection)가 불가능합니다. 내 목소리가 너무 커서 남의 소리가 안 들리기 때문입니다.</p>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#22c55e40")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
             <Wifi size={24} color="#22c55e" />
@@ -162,7 +162,7 @@ function SlideMobility() {
         </div>
       </div>
 
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         <div style={s.card("#334155")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
             <Repeat size={20} color="#a78bfa" />

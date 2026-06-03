@@ -3,6 +3,10 @@
   min-height: 100vh;
 }
 
+.mobileHeader {
+  display: none;
+}
+
 .sidebar {
   width: var(--sidebar-width);
   height: 100vh;
@@ -13,7 +17,12 @@
   background: var(--bg-panel);
   padding: 1rem 0.5rem;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  display: none;
 }
 
 .logo {
@@ -59,10 +68,66 @@
 
 @media (max-width: 768px) {
   .layoutContainer { flex-direction: column; }
-  .sidebar {
-    width: 100%; height: auto; position: relative;
-    border-right: none; border-bottom: 1px solid var(--border-color);
-    padding: 0.5rem;
+  
+  .mobileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 1rem;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
   }
-  .mainContent { margin-left: 0; max-width: 100%; padding: 1rem; }
+  
+  .hamburgerBtn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+  }
+  
+  .hamburgerBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 950;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mainContent { 
+    margin-left: 0; 
+    max-width: 100%; 
+    padding: 1rem; 
+    padding-top: calc(60px + 1rem); 
+  }
 }

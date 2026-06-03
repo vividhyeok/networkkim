@@ -43,15 +43,13 @@ const s = {
   },
   grid2: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "1rem",
     marginTop: "1rem",
+    gap: "1rem",
   },
   grid3: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gap: "1rem",
     marginTop: "1rem",
+    gap: "1rem",
   },
   card: (borderColor = "#334155") => ({
     background: "#161920",
@@ -142,7 +140,7 @@ function SlideComponents() {
       <span style={s.tag("#3b82f6")}>핵심 개념</span>
       <h2 style={s.title}>인터넷의 구성요소</h2>
       <p style={s.subtitle}>인터넷은 단일 거대망이 아니라 여러 <Term>ISP</Term>와 기관망이 서로 연결된 <span style={s.keyword}>Network of Networks</span>다.</p>
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         {items.map((item, i) => (
           <div key={i} style={{ ...s.card(item.color + "40"), display: "flex", gap: "1rem", alignItems: "flex-start" }}>
             <div style={{ color: item.color, flexShrink: 0, marginTop: "0.2rem" }}>{item.icon}</div>
@@ -317,7 +315,7 @@ function SlideSecurity() {
     <div style={s.slide}>
       <span style={s.tag("#ef4444")}>보안</span>
       <h2 style={s.title}>Network Security 위협</h2>
-      <div style={s.grid2}>
+      <div className="grid-1-to-2" style={s.grid2}>
         {threats.map((t, i) => (
           <div key={i} style={{ ...s.card(t.color + "40"), display: "flex", gap: "1rem", alignItems: "flex-start" }}>
             <div style={{ color: t.color, flexShrink: 0, marginTop: "0.2rem" }}>{t.icon}</div>
