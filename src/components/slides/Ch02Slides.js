@@ -24,19 +24,19 @@ const s = {
 };
 
 function Bullet({ children, color = "#3b82f6" }) {
-  return <div style={s.bullet}><span style={s.dot(color)} />{children}</div>;
+  return <div className="bullet-item" style={s.bullet}><span style={s.dot(color)} />{children}</div>;
 }
 
 /* ── SLIDE: App Architectures ── */
 function SlideArchitecture() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>아키텍처</span>
       <h2 style={s.title}>Client-Server vs P2P 구조</h2>
       <p style={s.subtitle}>네트워크 앱은 라우터가 아닌 <span style={s.keyword}><Term>End System</Term></span>에서 동작합니다.</p>
       
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#3b82f6")}>
+        <div className="vs-box" style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Server size={24} color="#3b82f6" />
             <h3 style={{ color: "#3b82f6", fontSize: "1.3rem", margin: 0 }}>Client-Server</h3>
@@ -48,7 +48,7 @@ function SlideArchitecture() {
           <Bullet color="#ef4444">서버 병목 (Scalability 한계)</Bullet>
         </div>
         
-        <div style={s.vsBox("#f59e0b")}>
+        <div className="vs-box" style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Share2 size={24} color="#f59e0b" />
             <h3 style={{ color: "#f59e0b", fontSize: "1.3rem", margin: 0 }}>P2P (Peer-to-Peer)</h3>
@@ -67,12 +67,12 @@ function SlideArchitecture() {
 /* ── SLIDE: Process & Socket ── */
 function SlideSocket() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#22c55e")}>통신 원리</span>
       <h2 style={s.title}>Process와 Socket</h2>
       <p style={s.subtitle}>프로세스는 문(<span style={s.keyword}><Term>Socket</Term></span>)을 통해 네트워크로 데이터를 내보냅니다.</p>
 
-      <div style={{ background: "#161920", borderRadius: "12px", padding: "2rem", border: "1px solid #334155", display: "flex", alignItems: "center", gap: "1rem", justifyContent: "space-between" }}>
+      <div className="socket-diagram" style={{ background: "#161920", borderRadius: "12px", padding: "2rem", border: "1px solid #334155", display: "flex", alignItems: "center", gap: "1rem", justifyContent: "space-between" }}>
         {/* App Layer */}
         <div style={{ flex: 1, textAlign: "center" }}>
           <div style={{ background: "#1e3a5f", padding: "1rem", borderRadius: "8px", border: "1px solid #3b82f6" }}>
@@ -100,7 +100,7 @@ function SlideSocket() {
         <h3 style={{ color: "#f1f5f9", fontSize: "1.2rem", marginBottom: "0.8rem" }}>프로세스 식별 (Addressing)</h3>
         <Bullet>호스트 식별자 = <span style={s.keyword}><Term>IP</Term> 주소</span> (32-bit IPv4)</Bullet>
         <Bullet>프로세스 식별자 = <span style={s.keyword}><Term>Port</Term> 번호</span> (예: HTTP 80, Mail 25)</Bullet>
-        <div style={{ ...s.codeBox, marginTop: "1rem", textAlign: "center", fontSize: "1.1rem" }}>
+        <div className="code-box" style={{ ...s.codeBox, marginTop: "1rem", textAlign: "center", fontSize: "1.1rem" }}>
           목적지 = 192.168.1.10 : 80
         </div>
       </div>
@@ -111,7 +111,7 @@ function SlideSocket() {
 /* ── SLIDE: HTTP/Web ── */
 function SlideHTTP() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>웹 프로토콜</span>
       <h2 style={s.title}>HTTP 기본 & 메시지 구조</h2>
       <p style={s.subtitle}>웹은 <Term>TCP</Term> 위에서 동작하는 <span style={s.keyword}>Stateless</span> 프로토콜인 <Term>HTTP</Term>를 사용합니다.</p>
@@ -120,7 +120,7 @@ function SlideHTTP() {
         {/* Request */}
         <div style={s.card("#a78bfa40")}>
           <h3 style={{ color: "#c084fc", fontSize: "1.1rem", marginBottom: "0.5rem" }}>Request Message</h3>
-          <div style={s.codeBox}>
+          <div className="code-box" style={s.codeBox}>
             <span style={{ color: "#f472b6" }}>GET</span> /index.html HTTP/1.1<br/>
             Host: www.example.com<br/>
             User-Agent: Mozilla/5.0<br/>
@@ -136,7 +136,7 @@ function SlideHTTP() {
         {/* Response */}
         <div style={s.card("#22c55e40")}>
           <h3 style={{ color: "#4ade80", fontSize: "1.1rem", marginBottom: "0.5rem" }}>Response Message</h3>
-          <div style={s.codeBox}>
+          <div className="code-box" style={s.codeBox}>
             HTTP/1.1 <span style={{ color: "#4ade80" }}>200 OK</span><br/>
             Date: Tue, 02 Jun 2026 09:00:00 GMT<br/>
             Server: Apache/2.4.41<br/>
@@ -161,13 +161,13 @@ function SlideHTTP() {
 /* ── SLIDE: Email & SMTP ── */
 function SlideEmail() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f472b6")}>이메일</span>
       <h2 style={s.title}>E-mail: SMTP, POP3, IMAP</h2>
       <p style={s.subtitle}>이메일 전송은 <span style={s.keyword}>Push</span>, 읽기는 <span style={s.keyword}>Pull</span> 방식입니다.</p>
 
       {/* Email Flow Diagram */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "#161920", padding: "2rem", borderRadius: "12px", border: "1px solid #334155", marginBottom: "2rem" }}>
+      <div className="flow-diagram" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "#161920", padding: "2rem", borderRadius: "12px", border: "1px solid #334155", marginBottom: "2rem" }}>
         <div style={{ textAlign: "center" }}>
           <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>🧑‍💻</div>
           <div style={{ color: "#f1f5f9", fontWeight: 700 }}>Sender (UA)</div>
@@ -224,7 +224,7 @@ function SlideEmail() {
 /* ── SLIDE: DNS ── */
 function SlideDNS() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#06b6d4")}>네임 시스템</span>
       <h2 style={s.title}>DNS (Domain Name System)</h2>
       <p style={s.subtitle}>도메인 이름을 IP 주소로 변환하는 분산 데이터베이스 시스템.</p>
@@ -265,7 +265,7 @@ function SlideDNS() {
 /* ── SLIDE: P2P & BitTorrent ── */
 function SlideP2P() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f59e0b")}>P2P 분산 공유</span>
       <h2 style={s.title}>BitTorrent & 파일 공유 구조</h2>
       <p style={s.subtitle}>서버 한 대가 고통받지 않고, 파일을 받는 사람들이 직접 조각(chunk)을 나눠줍니다.</p>
@@ -278,7 +278,7 @@ function SlideP2P() {
         <Bullet><strong>Tit-for-Tat</strong>: 나에게 데이터를 잘(빠르게) 보내주는 Peer 4명에게 우선적으로 데이터를 보냅니다. (이기적인 노드 배제)</Bullet>
       </div>
 
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div className="grid-1-to-2">
         <div style={{ flex: 1, background: "rgba(59,130,246,0.1)", padding: "1rem", borderRadius: "8px", border: "1px solid #3b82f640" }}>
           <div style={{ fontWeight: 700, color: "#60a5fa", marginBottom: "0.5rem" }}>Client-Server 전송 시간</div>
           <div style={{ fontSize: "0.95rem", color: "#cbd5e1" }}>클라이언트 수 N이 증가하면 서버 업로드 부담이 N배로 증가하여 <strong>O(N)</strong>으로 시간이 늦어집니다.</div>
@@ -295,13 +295,13 @@ function SlideP2P() {
 /* ── SLIDE: Video Streaming (DASH/CDN) ── */
 function SlideVideo() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#ec4899")}>멀티미디어</span>
       <h2 style={s.title}>Video Streaming: <Term>DASH</Term> & <Term>CDN</Term></h2>
       <p style={s.subtitle}>Netflix, YouTube가 버퍼링 없이 고화질을 서비스하는 원리</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#ec4899")}>
+        <div className="vs-box" style={s.vsBox("#ec4899")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Film size={24} color="#ec4899" />
             <h3 style={{ color: "#ec4899", fontSize: "1.3rem", margin: 0 }}>DASH</h3>
@@ -312,7 +312,7 @@ function SlideVideo() {
           <Bullet color="#22c55e">네트워크가 느려져도 영상이 끊기지 않고 화질만 낮아짐</Bullet>
         </div>
         
-        <div style={s.vsBox("#8b5cf6")}>
+        <div className="vs-box" style={s.vsBox("#8b5cf6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Network size={24} color="#8b5cf6" />
             <h3 style={{ color: "#8b5cf6", fontSize: "1.3rem", margin: 0 }}>CDN</h3>
@@ -340,13 +340,13 @@ function SlideExam() {
     "UDP 소켓과 TCP 소켓 프로그래밍 흐름(순서) 그리기",
   ];
   return (
-    <div style={{ ...s.slide, borderColor: "rgba(245,158,11,0.3)", borderTop: "3px solid #f59e0b" }}>
+    <div className="slide-card" style={{ ...s.slide, borderColor: "rgba(245,158,11,0.3)", borderTop: "3px solid #f59e0b" }}>
       <span style={s.tag("#f59e0b")}>시험 대비</span>
       <h2 style={s.title}>2장 시험/복습 체크리스트</h2>
       <p style={s.subtitle}>이 질문들에 대답할 수 있다면 Application Layer는 마스터한 것입니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label key={i} className="exam-label" style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

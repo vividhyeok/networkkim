@@ -120,7 +120,7 @@ const s = {
 
 function Bullet({ children, color = "#3b82f6" }) {
   return (
-    <div style={s.bullet}>
+    <div className="bullet-item" style={s.bullet}>
       <span style={s.dot(color)} />
       {children}
     </div>
@@ -136,7 +136,7 @@ function SlideComponents() {
     { icon: <Layers size={28} />, label: <Term>Protocol</Term>, desc: "메시지의 형식, 순서, 동작 규칙을 정의", color: "#a78bfa" },
   ];
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>핵심 개념</span>
       <h2 style={s.title}>인터넷의 구성요소</h2>
       <p style={s.subtitle}>인터넷은 단일 거대망이 아니라 여러 <Term>ISP</Term>와 기관망이 서로 연결된 <span style={s.keyword}>Network of Networks</span>다.</p>
@@ -165,7 +165,7 @@ function SlideEdge() {
     { label: "Wireless", desc: "Wi-Fi, cellular. AP/기지국 경유", type: "shared" },
   ];
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#22c55e")}>네트워크 가장자리</span>
       <h2 style={s.title}>Access Network 유형</h2>
       <p style={s.subtitle}>핵심 구분: <span style={s.keyword}>Dedicated Access</span> vs <span style={s.keyword}>Shared Access</span> — 공유 매체에서는 충돌/혼잡/접속 제어 문제 발생</p>
@@ -190,10 +190,10 @@ function SlideEdge() {
 /* ── SLIDE: Packet vs Circuit Switching ── */
 function SlideSwitching() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>핵심 비교</span>
       <h2 style={s.title}>Packet Switching vs Circuit Switching</h2>
-      <div style={{ display: "flex", gap: "1.5rem", marginTop: "1.5rem" }}>
+      <div className="flex-comparison" style={{ display: "flex", gap: "1.5rem", marginTop: "1.5rem" }}>
         <div style={s.vsBox("#3b82f6")}>
           <h3 style={{ color: "#3b82f6", fontSize: "1.3rem", marginBottom: "1rem" }}>📦 Packet Switching</h3>
           <Bullet>메시지를 <span style={s.keyword}><Term>Packet</Term></span>으로 쪼개서 전송</Bullet>
@@ -229,11 +229,11 @@ function SlideDelay() {
     { label: "Propagation", desc: "신호가 매체를 따라 이동 = d/s", icon: <Radio size={20} />, color: "#a78bfa" },
   ];
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f59e0b")}>성능 지표</span>
       <h2 style={s.title}>Packet Delay의 4요소</h2>
       <div style={s.formula}>nodal delay = d_proc + d_queue + d_trans + d_prop</div>
-      <div style={{ display: "flex", gap: "0", marginTop: "1.5rem", borderRadius: "12px", overflow: "hidden", border: "1px solid #2d3748" }}>
+      <div className="flex-comparison" style={{ display: "flex", gap: "0", marginTop: "1.5rem", borderRadius: "12px", overflow: "hidden", border: "1px solid #2d3748" }}>
         {delays.map((d, i) => (
           <div key={i} style={{
             flex: 1,
@@ -267,7 +267,7 @@ function SlideProtocol() {
     { name: "Physical", role: "bit의 물리적 전송", ex: "copper, fiber, radio", bg: "#3b1a1a", color: "#f87171" },
   ];
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>계층 구조</span>
       <h2 style={s.title}>Internet Protocol Stack (5계층)</h2>
       <p style={s.subtitle}>핵심 그림은 <span style={s.keyword}><Term>Encapsulation</Term></span> — 위 계층 데이터에 아래 계층 header가 계속 붙는다.</p>
@@ -312,7 +312,7 @@ function SlideSecurity() {
     { icon: <UserX size={24} />, label: <><Term>Spoofing</Term></>, desc: "source address를 위조하여 패킷 전송", color: "#f472b6" },
   ];
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#ef4444")}>보안</span>
       <h2 style={s.title}>Network Security 위협</h2>
       <div className="grid-1-to-2" style={s.grid2}>
@@ -341,13 +341,13 @@ function SlideExam() {
     "5계층과 encapsulation 방향 설명",
   ];
   return (
-    <div style={{ ...s.slide, borderColor: "rgba(245,158,11,0.3)", borderTop: "3px solid #f59e0b" }}>
+    <div className="slide-card" style={{ ...s.slide, borderColor: "rgba(245,158,11,0.3)", borderTop: "3px solid #f59e0b" }}>
       <span style={s.tag("#f59e0b")}>시험 대비</span>
       <h2 style={s.title}>시험/복습 체크리스트</h2>
       <p style={s.subtitle}>아래 항목을 모두 설명할 수 있으면 이 장은 완벽합니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label key={i} className="exam-label" style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

@@ -28,7 +28,7 @@ function Bullet({ children, color = "#3b82f6" }) {
 /* ── SLIDE: Link Layer ── */
 function SlideLink() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>물리적 연결</span>
       <h2 style={s.title}>Link Layer의 역할</h2>
       <p style={s.subtitle}>네트워크 계층(IP)이 출발지부터 목적지까지의 "여행 전체"를 계획한다면, 링크 계층은 <strong>"한 정거장(One-hop)"</strong> 이동을 책임집니다.</p>
@@ -70,13 +70,13 @@ function SlideLink() {
 /* ── SLIDE: MAC Protocols ── */
 function SlideMAC() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f59e0b")}>다중 접속</span>
       <h2 style={s.title}>Multiple Access Protocols</h2>
       <p style={s.subtitle}>하나의 선(또는 공기)을 여러 기기가 동시에 쓰면 충돌(Collision)이 발생합니다. 어떻게 해결할까요?</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#f59e0b")}>
+        <div className="vs-box" style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <SwitchCamera size={24} color="#f59e0b" />
             <h3 style={{ color: "#f59e0b", fontSize: "1.3rem", margin: 0 }}>Channel Partitioning</h3>
@@ -87,7 +87,7 @@ function SlideMAC() {
           <Bullet color="#ef4444">기기가 전송할 데이터가 없어도 차선을 비워두어 낭비 발생</Bullet>
         </div>
 
-        <div style={s.vsBox("#22c55e")}>
+        <div className="vs-box" style={s.vsBox("#22c55e")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <RadioTower size={24} color="#22c55e" />
             <h3 style={{ color: "#22c55e", fontSize: "1.3rem", margin: 0 }}>Random Access (<Term>CSMA/CD</Term>)</h3>
@@ -105,7 +105,7 @@ function SlideMAC() {
 /* ── SLIDE: MAC & ARP ── */
 function SlideARP() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>주소 변환</span>
       <h2 style={s.title}>MAC Address와 <Term>ARP</Term></h2>
 
@@ -130,7 +130,7 @@ function SlideARP() {
           <p style={{ color: "#e2e8f0", fontSize: "0.95rem", marginBottom: "1rem" }}>
             IP 주소는 아는데, 그 기기의 MAC 주소를 모를 때 사용합니다.
           </p>
-          <div style={s.codeBox}>
+          <div className="code-box" style={s.codeBox}>
             <strong>내 PC:</strong> (모두에게 외침 - Broadcast)<br/>
             "IP 192.168.1.1 가진 분, MAC 주소 뭡니까?"<br/><br/>
             <strong>라우터:</strong> (나에게만 대답 - Unicast)<br/>
@@ -145,7 +145,7 @@ function SlideARP() {
 /* ── SLIDE: Switch ── */
 function SlideSwitch() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#06b6d4")}>네트워크 장비</span>
       <h2 style={s.title}>Ethernet <Term>Switch</Term></h2>
       <p style={s.subtitle}>스위치는 들어오는 프레임의 목적지 MAC 주소를 보고, 갈 길만 열어주는 똑똑한 장비입니다.</p>
@@ -158,7 +158,7 @@ function SlideSwitch() {
         <Bullet>4. 나중에 B가 대답하면, B의 위치도 학습하여 다음부터는 A와 B 사이만 길을 열어줍니다.</Bullet>
       </div>
 
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div className="flex-col-to-row" style={{ display: "flex", gap: "1rem" }}>
         <div style={{ flex: 1, background: "#0c1220", padding: "1rem", borderRadius: "8px", border: "1px solid #334155" }}>
           <div style={{ fontWeight: 700, color: "#cbd5e1" }}>Switch (스위치)</div>
           <div style={{ fontSize: "0.9rem", color: "#94a3b8" }}>Link Layer 장비. MAC 주소로 동작. 같은 LAN 내부 연결.</div>
@@ -175,7 +175,7 @@ function SlideSwitch() {
 /* ── SLIDE: Web Request Lifecycle ── */
 function SlideLifecycle() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#ef4444")}>종합 시나리오</span>
       <h2 style={s.title}>A Day in the Life of a Web Request</h2>
       <p style={s.subtitle}>노트북을 켜서 구글에 접속하기까지, 배운 모든 프로토콜이 총동원됩니다.</p>
@@ -219,7 +219,7 @@ function SlideExam() {
       <p style={s.subtitle}>LAN 환경에서의 물리적 패킷 이동 규칙을 점검합니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label className="exam-label" key={i} style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

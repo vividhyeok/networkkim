@@ -28,12 +28,12 @@ function Bullet({ children, color = "#3b82f6" }) {
 /* ── SLIDE: Blockchain Concept ── */
 function SlideBlockchain() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>기본 개념</span>
       <h2 style={s.title}>Blockchain 데이터 구조</h2>
       <p style={s.subtitle}>데이터가 담긴 "블록"들이 암호학적으로 "체인"처럼 연결된 장부(Ledger)입니다.</p>
 
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#161920", padding: "3rem 2rem", borderRadius: "12px", border: "1px solid #334155", marginBottom: "1.5rem" }}>
+      <div className="flex-col-to-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#161920", padding: "3rem 2rem", borderRadius: "12px", border: "1px solid #334155", marginBottom: "1.5rem" }}>
         
         {/* Block N */}
         <div style={{ flex: 1, background: "#1e3a5f", border: "2px solid #3b82f6", borderRadius: "8px", padding: "1rem", position: "relative" }}>
@@ -71,12 +71,12 @@ function SlideBlockchain() {
 /* ── SLIDE: Bitcoin vs Blockchain ── */
 function SlideBitcoin() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f59e0b")}>핵심 차이</span>
       <h2 style={s.title}>Bitcoin ≠ Blockchain</h2>
       
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#f59e0b")}>
+        <div className="vs-box" style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Blocks size={24} color="#f59e0b" />
             <h3 style={{ color: "#f59e0b", fontSize: "1.3rem", margin: 0 }}>Blockchain</h3>
@@ -86,7 +86,7 @@ function SlideBitcoin() {
           <Bullet>금융뿐만 아니라 물류, 계약(Smart Contract), 신원 인증 등 <strong>다양한 분야에 적용 가능</strong></Bullet>
         </div>
 
-        <div style={s.vsBox("#ec4899")}>
+        <div className="vs-box" style={s.vsBox("#ec4899")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Bitcoin size={24} color="#ec4899" />
             <h3 style={{ color: "#ec4899", fontSize: "1.3rem", margin: 0 }}>Bitcoin</h3>
@@ -110,13 +110,13 @@ function SlideBitcoin() {
 /* ── SLIDE: Torrent vs Blockchain ── */
 function SlideP2P() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>P2P 비교</span>
       <h2 style={s.title}>Torrent vs Blockchain</h2>
       <p style={s.subtitle}>둘 다 서버 없이 개인들이 연결된 P2P 네트워크지만 목적이 다릅니다.</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#3b82f6")}>
+        <div className="vs-box" style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Network size={24} color="#3b82f6" />
             <h3 style={{ color: "#3b82f6", fontSize: "1.2rem", margin: 0 }}>Torrent</h3>
@@ -126,7 +126,7 @@ function SlideP2P() {
           <Bullet>신뢰 구조: 조각을 모아 내 컴퓨터에서 완성하면 끝</Bullet>
         </div>
 
-        <div style={s.vsBox("#a78bfa")}>
+        <div className="vs-box" style={s.vsBox("#a78bfa")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <LinkIcon size={24} color="#a78bfa" />
             <h3 style={{ color: "#a78bfa", fontSize: "1.2rem", margin: 0 }}>Blockchain</h3>
@@ -143,7 +143,7 @@ function SlideP2P() {
 /* ── SLIDE: Mining ── */
 function SlideMining() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#22c55e")}>합의 증명</span>
       <h2 style={s.title}>Mining (채굴) 원리</h2>
       <p style={s.subtitle}>서버가 없는데 누가 거래 내역을 확정(Write)할까요? 수학 문제를 가장 먼저 푸는 사람에게 권한을 줍니다.</p>
@@ -154,7 +154,7 @@ function SlideMining() {
           <h3 style={{ color: "#4ade80", fontSize: "1.3rem", margin: 0 }}>Proof of Work (작업 증명)</h3>
         </div>
         
-        <div style={s.codeBox}>
+        <div className="code-box" style={s.codeBox}>
           Hash ( Block Data + Prev Hash + <span style={{ color: "#f59e0b", fontWeight: 700 }}>Nonce</span> ) &lt; <span style={{ color: "#ef4444", fontWeight: 700 }}>Target</span>
         </div>
         
@@ -172,13 +172,13 @@ function SlideMining() {
 /* ── SLIDE: DB vs Blockchain ── */
 function SlideDB() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#06b6d4")}>저장소 비교</span>
       <h2 style={s.title}>Database vs Blockchain</h2>
       <p style={s.subtitle}>블록체인이 무조건 좋은 것은 아닙니다. 신뢰를 얻기 위해 효율성을 포기한 구조입니다.</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#3b82f6")}>
+        <div className="vs-box" style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <HardDrive size={24} color="#3b82f6" />
             <h3 style={{ color: "#3b82f6", fontSize: "1.3rem", margin: 0 }}>Centralized DB</h3>
@@ -189,7 +189,7 @@ function SlideDB() {
           <Bullet color="#ef4444">관리자가 악의적으로 조작하면 막기 어려움</Bullet>
         </div>
 
-        <div style={s.vsBox("#06b6d4")}>
+        <div className="vs-box" style={s.vsBox("#06b6d4")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Unlink size={24} color="#06b6d4" />
             <h3 style={{ color: "#06b6d4", fontSize: "1.3rem", margin: 0 }}>Blockchain Ledger</h3>
@@ -221,7 +221,7 @@ function SlideExam() {
       <p style={s.subtitle}>블록체인의 분산 원장 개념과 마이닝 동작 원리를 점검합니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label className="exam-label" key={i} style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

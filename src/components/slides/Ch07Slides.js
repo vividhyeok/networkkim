@@ -28,7 +28,7 @@ function Bullet({ children, color = "#3b82f6" }) {
 /* ── SLIDE: Wireless Characteristics ── */
 function SlideWireless() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>무선 통신의 한계</span>
       <h2 style={s.title}>Wireless Link Characteristics</h2>
       <p style={s.subtitle}>무선은 유선(케이블)보다 훨씬 열악한 환경입니다. 신호가 공기 중으로 흩어지기 때문입니다.</p>
@@ -62,7 +62,7 @@ function SlideWireless() {
 /* ── SLIDE: 802.11 Wi-Fi ── */
 function SlideWiFi() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#22c55e")}>근거리 무선망</span>
       <h2 style={s.title}>802.11 Wi-Fi: CSMA/CA</h2>
       <p style={s.subtitle}>무선은 충돌 감지(Collision Detection)가 불가능합니다. 내 목소리가 너무 커서 남의 소리가 안 들리기 때문입니다.</p>
@@ -85,7 +85,7 @@ function SlideWiFi() {
             <h3 style={{ color: "#f59e0b", fontSize: "1.2rem", margin: 0 }}>RTS / CTS</h3>
           </div>
           <div style={{ color: "#94a3b8", fontSize: "0.9rem", marginBottom: "1rem" }}>Hidden Terminal 문제 해결책</div>
-          <div style={s.codeBox}>
+          <div className="code-box" style={s.codeBox}>
             <strong>단말:</strong> "공유기야, 나 긴 데이터 보낼 건데 채널 예약해 줘!" (RTS)<br/><br/>
             <strong>공유기:</strong> "그래! 주변 단말들아, 얘 보낼 때까지 조용히 해!" (CTS)
           </div>
@@ -99,12 +99,12 @@ function SlideWiFi() {
 /* ── SLIDE: Cellular Networks ── */
 function SlideCellular() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#06b6d4")}>광역 무선망</span>
       <h2 style={s.title}>Cellular Networks (4G/LTE)</h2>
       <p style={s.subtitle}>이동통신망은 기지국(RAN)과 코어 네트워크(EPC)로 구성됩니다.</p>
 
-      <div style={{ background: "#161920", border: "1px solid #334155", borderRadius: "12px", padding: "2rem", display: "flex", alignItems: "center", gap: "1.5rem" }}>
+      <div className="component-row" style={{ background: "#161920", border: "1px solid #334155", borderRadius: "12px", padding: "2rem", display: "flex", alignItems: "center", gap: "1.5rem" }}>
         
         <div style={{ flex: 1, textAlign: "center" }}>
           <div style={{ background: "#1a3a2a", padding: "1.5rem 1rem", borderRadius: "8px", border: "1px solid #22c55e" }}>
@@ -146,12 +146,12 @@ function SlideCellular() {
 /* ── SLIDE: Mobility ── */
 function SlideMobility() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>이동성</span>
       <h2 style={s.title}>Mobility (이동성 관리)</h2>
       <p style={s.subtitle}>사용자가 이동하여 접속하는 망이 바뀌어도, 통신이 끊기지 않아야 합니다.</p>
 
-      <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem" }}>
+      <div className="flex-col-to-row" style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem" }}>
         <div style={{ flex: 1, background: "#161920", padding: "1rem", borderRadius: "8px", border: "1px solid #334155" }}>
           <div style={{ color: "#60a5fa", fontWeight: 700, marginBottom: "0.5rem" }}>Home Network</div>
           <div style={{ color: "#cbd5e1", fontSize: "0.9rem" }}>스마트폰이 원래 가입되어 있는 고향 네트워크. 여기서 발급받은 영구적인 IP를 가집니다.</div>
@@ -207,7 +207,7 @@ function SlideExam() {
       <p style={s.subtitle}>불안정한 무선 환경과 이동성 처리 방식을 점검합니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label className="exam-label" key={i} style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

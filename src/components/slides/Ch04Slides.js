@@ -28,13 +28,13 @@ function Bullet({ children, color = "#3b82f6" }) {
 /* ── SLIDE: Forwarding vs Routing ── */
 function SlidePlanes() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>네트워크 계층 핵심</span>
       <h2 style={s.title}>Data Plane vs Control Plane</h2>
       <p style={s.subtitle}>네트워크 계층은 길을 <strong>찾는 것</strong>과 길로 <strong>보내는 것</strong> 두 가지 역할을 합니다.</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#3b82f6")}>
+        <div className="vs-box" style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <ArrowRightLeft size={24} color="#3b82f6" />
             <h3 style={{ color: "#3b82f6", fontSize: "1.3rem", margin: 0 }}>Forwarding (<Term>Data Plane</Term>)</h3>
@@ -44,7 +44,7 @@ function SlidePlanes() {
           <Bullet color="#94a3b8">비유: 교차로에서 어느 출구로 나갈지 즉각 결정하는 것</Bullet>
         </div>
 
-        <div style={s.vsBox("#f59e0b")}>
+        <div className="vs-box" style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Map size={24} color="#f59e0b" />
             <h3 style={{ color: "#f59e0b", fontSize: "1.3rem", margin: 0 }}>Routing (<Term>Control Plane</Term>)</h3>
@@ -61,12 +61,12 @@ function SlidePlanes() {
 /* ── SLIDE: Router Architecture ── */
 function SlideRouter() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#22c55e")}>라우터 내부</span>
       <h2 style={s.title}>Router Architecture</h2>
       <p style={s.subtitle}>패킷이 라우터를 통과하는 과정 (Input Port → Switching Fabric → Output Port)</p>
 
-      <div style={{ background: "#161920", border: "1px solid #334155", borderRadius: "12px", padding: "2rem", display: "flex", alignItems: "center", gap: "1.5rem" }}>
+      <div className="flex-col-to-row" style={{ background: "#161920", border: "1px solid #334155", borderRadius: "12px", padding: "2rem", display: "flex", alignItems: "center", gap: "1.5rem" }}>
         
         {/* Input Port */}
         <div style={{ flex: 1, textAlign: "center" }}>
@@ -109,7 +109,7 @@ function SlideRouter() {
 /* ── SLIDE: IP & DHCP & NAT ── */
 function SlideAddress() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>주소 할당과 변환</span>
       <h2 style={s.title}>IPv4, <Term>DHCP</Term>, 그리고 <Term>NAT</Term></h2>
 
@@ -120,7 +120,7 @@ function SlideAddress() {
             <h3 style={{ color: "#a78bfa", fontSize: "1.2rem", margin: 0 }}>DHCP (동적 할당)</h3>
           </div>
           <div style={{ color: "#cbd5e1", fontSize: "0.95rem", marginBottom: "1rem" }}>호스트가 네트워크에 접속할 때 자동으로 IP와 설정을 받아오는 과정 (DORA)</div>
-          <div style={s.codeBox}>
+          <div className="code-box" style={s.codeBox}>
             1. <strong>D</strong>iscover: "DHCP 서버 있나요?" (Broadcast)<br/>
             2. <strong>O</strong>ffer: "이 IP 쓸래?"<br/>
             3. <strong>R</strong>equest: "네, 그 IP 쓸게요!"<br/>
@@ -146,7 +146,7 @@ function SlideAddress() {
 /* ── SLIDE: IPv6 & Tunneling ── */
 function SlideIPv6() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#06b6d4")}>차세대 네트워크</span>
       <h2 style={s.title}>IPv6와 Tunneling</h2>
       <p style={s.subtitle}>IPv4 주소 고갈 문제를 해결하고 헤더 처리를 효율화하기 위한 새로운 체계</p>
@@ -197,7 +197,7 @@ function SlideExam() {
       <p style={s.subtitle}>Data Plane의 핵심 라우터 동작과 IP 프로토콜을 점검합니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label className="exam-label" key={i} style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

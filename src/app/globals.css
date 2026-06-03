@@ -76,36 +76,96 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.3; color: #f1f5f9; }
   padding: 0;
 }
 
-/* Responsive Utilities */
+/* ══════════════════════════════════════
+   Responsive Utility Classes
+   ══════════════════════════════════════ */
+
 .grid-1-to-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .grid-1-to-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
 .flex-col-to-row { display: flex; flex-direction: row; gap: 1.5rem; }
 
-@media (max-width: 768px) {
-  .grid-1-to-2, .grid-1-to-3 { grid-template-columns: 1fr; }
-  .flex-col-to-row { flex-direction: column; }
-  h1 { font-size: 1.8rem !important; }
-  h2 { font-size: 1.4rem !important; }
-  h3 { font-size: 1.15rem !important; }
-}
-
+/* ══════════════════════════════════════
+   Mobile Responsive (@media ≤ 768px)
+   ══════════════════════════════════════ */
 
 @media (max-width: 768px) {
-  div[style*="grid-template-columns: 1fr 1fr"],
-  div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+
+  /* -- Grid & Flex utilities collapse to single column -- */
+  .grid-1-to-2,
+  .grid-1-to-3 {
     grid-template-columns: 1fr !important;
   }
-
-  div[style*="display: flex"][style*="gap: 1.5rem"],
-  div[style*="display: flex"][style*="gap: 2rem"] {
+  .flex-col-to-row {
     flex-direction: column !important;
   }
+
+  /* -- Typography scaling -- */
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.25rem !important; }
+  h3 { font-size: 1.05rem !important; }
+
+  /* -- Slide cards: reduce padding on mobile -- */
+  .slide-card {
+    padding: 1.5rem !important;
+    min-height: unset !important;
+  }
+
+  /* -- VS comparison boxes: reduce padding -- */
+  .vs-box {
+    padding: 1.2rem !important;
+  }
+
+  /* -- Flow diagrams (e.g. email): stack vertically -- */
+  .flow-diagram {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding: 1.2rem !important;
+  }
+  .flow-diagram .flow-arrow {
+    display: none;
+  }
+  .flow-diagram .flow-step {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* -- Code boxes: prevent horizontal overflow -- */
+  .code-box {
+    font-size: 0.82rem !important;
+    word-break: break-all;
+    overflow-x: auto;
+  }
+
+  /* -- Chapter header -- */
+  .chapter-header {
+    padding: 1.5rem 0 1rem !important;
+  }
+  .chapter-header h1 {
+    font-size: 1.4rem !important;
+  }
+
+  /* -- Bullet text -- */
+  .bullet-item {
+    font-size: 0.95rem !important;
+  }
+
+  /* -- Exam checklist labels -- */
+  .exam-label {
+    font-size: 0.95rem !important;
+    padding: 0.8rem 1rem !important;
+  }
+
+  /* -- Inline diagrams that use horizontal flex with gap -- */
+  .socket-diagram {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    padding: 1.2rem !important;
+  }
+
+  /* -- Cellular/network component grids -- */
+  .component-row,
+  .flex-comparison {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
 }
-
-
-@media (max-width: 768px) {
-  .grid-1-to-2, .grid-1-to-3 { grid-template-columns: 1fr !important; }
-  .flex-col-to-row { flex-direction: column !important; }
-  .slide-box { padding: 1.5rem !important; }
-}
-

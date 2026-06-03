@@ -28,13 +28,13 @@ function Bullet({ children, color = "#3b82f6" }) {
 /* ── SLIDE: Control Plane Approaches ── */
 function SlideControlPlane() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>제어 평면</span>
       <h2 style={s.title}>Control Plane 구현 방식</h2>
       <p style={s.subtitle}>네트워크 전체를 보고 어떻게 최적의 경로를 찾을 것인가?</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#3b82f6")}>
+        <div className="vs-box" style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Share2 size={24} color="#3b82f6" />
             <h3 style={{ color: "#3b82f6", fontSize: "1.3rem", margin: 0 }}>Per-router Control</h3>
@@ -45,7 +45,7 @@ function SlideControlPlane() {
           <Bullet color="#94a3b8">분산적이고 안정적이지만, 일괄 제어가 어려움</Bullet>
         </div>
 
-        <div style={s.vsBox("#f59e0b")}>
+        <div className="vs-box" style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <ServerCog size={24} color="#f59e0b" />
             <h3 style={{ color: "#f59e0b", fontSize: "1.3rem", margin: 0 }}>Logically Centralized (<Term>SDN</Term>)</h3>
@@ -62,13 +62,13 @@ function SlideControlPlane() {
 /* ── SLIDE: LS vs DV ── */
 function SlideAlgorithms() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#22c55e")}>알고리즘 비교</span>
       <h2 style={s.title}>Link State vs Distance Vector</h2>
       <p style={s.subtitle}>어떤 정보를 바탕으로 최단 경로(Shortest Path)를 계산하는가?</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#22c55e")}>
+        <div className="vs-box" style={s.vsBox("#22c55e")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Map size={24} color="#22c55e" />
             <h3 style={{ color: "#22c55e", fontSize: "1.3rem", margin: 0 }}>Link State (LS) / <Term>Dijkstra</Term></h3>
@@ -79,7 +79,7 @@ function SlideAlgorithms() {
           <Bullet color="#ef4444">네트워크가 커지면 메시지 Flooding과 계산 부하(Overhead) 큼</Bullet>
         </div>
 
-        <div style={s.vsBox("#a78bfa")}>
+        <div className="vs-box" style={s.vsBox("#a78bfa")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Route size={24} color="#a78bfa" />
             <h3 style={{ color: "#a78bfa", fontSize: "1.3rem", margin: 0 }}>Distance Vector (DV) / Bellman-Ford</h3>
@@ -97,12 +97,12 @@ function SlideAlgorithms() {
 /* ── SLIDE: AS Hierarchy ── */
 function SlideHierarchy() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f472b6")}>확장성 문제</span>
       <h2 style={s.title}>Autonomous System (AS) 계층 구조</h2>
       <p style={s.subtitle}>전 세계 수십억 개 공유기를 하나의 알고리즘으로 돌릴 순 없습니다. 인터넷은 <strong>AS(자율 시스템)</strong> 단위로 묶여 있습니다.</p>
 
-      <div style={{ background: "#161920", border: "1px solid #334155", borderRadius: "12px", padding: "2rem", display: "flex", alignItems: "center", gap: "2rem" }}>
+      <div className="flex-col-to-row" style={{ background: "#161920", border: "1px solid #334155", borderRadius: "12px", padding: "2rem", display: "flex", alignItems: "center", gap: "2rem" }}>
         
         {/* Intra-AS */}
         <div style={{ flex: 1, background: "#1e3a5f", padding: "1.5rem", borderRadius: "8px", border: "1px solid #3b82f6" }}>
@@ -132,7 +132,7 @@ function SlideHierarchy() {
 /* ── SLIDE: BGP ── */
 function SlideBGP() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#06b6d4")}>인터넷의 접착제</span>
       <h2 style={s.title}><Term>BGP</Term> (Border Gateway Protocol)</h2>
       <p style={s.subtitle}>인터넷 라우팅의 핵심. 단순히 "가장 빠른 길"이 아니라 "정책상 갈 수 있는 길"을 찾습니다.</p>
@@ -157,7 +157,7 @@ function SlideBGP() {
 /* ── SLIDE: SDN & OpenFlow ── */
 function SlideSDN() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f59e0b")}>차세대 네트워크</span>
       <h2 style={s.title}>SDN (Software Defined Networking) 구조</h2>
 
@@ -213,7 +213,7 @@ function SlideExam() {
       <p style={s.subtitle}>네트워크 제어의 핵심 알고리즘과 프로토콜을 점검합니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label className="exam-label" key={i} style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

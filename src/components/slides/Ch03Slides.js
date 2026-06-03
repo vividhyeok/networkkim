@@ -28,7 +28,7 @@ function Bullet({ children, color = "#3b82f6" }) {
 /* ── SLIDE: Mux / Demux ── */
 function SlideDemux() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#3b82f6")}>기본 역할</span>
       <h2 style={s.title}>Multiplexing & Demultiplexing</h2>
       <p style={s.subtitle}>네트워크 계층(IP)이 호스트를 찾았다면, 트랜스포트 계층은 적절한 <strong>프로세스(소켓)</strong>를 찾습니다.</p>
@@ -73,13 +73,13 @@ function SlideDemux() {
 /* ── SLIDE: UDP vs TCP 요약 ── */
 function SlideUdpTcp() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#a78bfa")}>핵심 비교</span>
       <h2 style={s.title}><Term>UDP</Term> vs <Term>TCP</Term></h2>
       <p style={s.subtitle}>인터넷의 두 가지 주요 트랜스포트 프로토콜</p>
 
       <div className="grid-1-to-2" style={s.grid2}>
-        <div style={s.vsBox("#f59e0b")}>
+        <div className="vs-box" style={s.vsBox("#f59e0b")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <Zap size={24} color="#f59e0b" />
             <h3 style={{ color: "#f59e0b", fontSize: "1.3rem", margin: 0 }}>UDP (User Datagram Protocol)</h3>
@@ -92,7 +92,7 @@ function SlideUdpTcp() {
           <Bullet color="#22c55e">실시간 스트리밍, DNS 등에 사용</Bullet>
         </div>
 
-        <div style={s.vsBox("#3b82f6")}>
+        <div className="vs-box" style={s.vsBox("#3b82f6")}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
             <ShieldAlert size={24} color="#3b82f6" />
             <h3 style={{ color: "#3b82f6", fontSize: "1.3rem", margin: 0 }}>TCP (Transmission Control Protocol)</h3>
@@ -112,7 +112,7 @@ function SlideUdpTcp() {
 /* ── SLIDE: RDT Pipeline ── */
 function SlideRDT() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#f472b6")}>이론 모델</span>
       <h2 style={s.title}>Reliable Data Transfer & Pipelining</h2>
       <p style={s.subtitle}>불안정한 채널에서 신뢰성을 확보하기 위한 메커니즘과 성능 최적화</p>
@@ -120,7 +120,7 @@ function SlideRDT() {
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <div style={s.card("#334155")}>
           <h3 style={{ color: "#cbd5e1", fontSize: "1.1rem", marginBottom: "0.5rem" }}>RDT 진화 과정</h3>
-          <div style={{ display: "flex", gap: "1rem", fontSize: "0.95rem" }}>
+          <div className="flex-col-to-row" style={{ display: "flex", gap: "1rem", fontSize: "0.95rem" }}>
             <div style={{ flex: 1 }}><strong>rdt 2.0 (Bit Error 처리):</strong> Checksum, ACK, NAK, 재전송 도입</div>
             <div style={{ flex: 1 }}><strong>rdt 2.1/2.2 (ACK 손실 처리):</strong> Sequence Number 도입, 중복 패킷 버림</div>
             <div style={{ flex: 1 }}><strong>rdt 3.0 (Packet Loss 처리):</strong> Timer와 Timeout 도입</div>
@@ -152,7 +152,7 @@ function SlideRDT() {
 /* ── SLIDE: TCP 3-Way Handshake ── */
 function SlideHandshake() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#22c55e")}>연결 관리</span>
       <h2 style={s.title}>TCP 3-Way Handshake</h2>
       <p style={s.subtitle}>데이터를 보내기 전에 클라이언트와 서버가 서로의 상태(Sequence Number 등)를 동기화합니다.</p>
@@ -198,7 +198,7 @@ function SlideHandshake() {
 /* ── SLIDE: Congestion Control ── */
 function SlideCongestion() {
   return (
-    <div style={s.slide}>
+    <div className="slide-card" style={s.slide}>
       <span style={s.tag("#ef4444")}>핵심 알고리즘</span>
       <h2 style={s.title}>TCP <Term>Congestion control</Term></h2>
       <p style={s.subtitle}>네트워크 붕괴를 막기 위해 송신자가 알아서 보내는 양을 조절합니다.</p>
@@ -253,7 +253,7 @@ function SlideExam() {
       <p style={s.subtitle}>이 질문들에 대답할 수 있다면 Transport Layer는 완벽합니다.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {points.map((p, i) => (
-          <label key={i} style={{
+          <label className="exam-label" key={i} style={{
             display: "flex", alignItems: "center", gap: "0.8rem",
             background: "#161920", borderRadius: "8px", padding: "1rem 1.2rem",
             border: "1px solid #2d3748", cursor: "pointer", fontSize: "1.1rem", color: "#cbd5e1",

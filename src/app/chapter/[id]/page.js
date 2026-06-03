@@ -52,7 +52,7 @@ export default async function ChapterPage({ params }) {
   return (
     <div style={{ width: "100%", paddingBottom: "5rem" }}>
       {/* Chapter Header */}
-      <div style={{
+      <div className="chapter-header" style={{
         padding: "3rem 0 2rem",
         marginBottom: "2rem",
         borderBottom: "1px solid var(--border-color)"
